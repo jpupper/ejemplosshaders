@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Ejemplos Shaders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript" src="js/p5.min2.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/fxhashconfig.js"></script>
+    <script type="text/javascript" src="js/shaderrender.js"></script>
+    <script type="text/javascript" src="js/interface.js"></script>
+    <script type="text/javascript" src="js/p5obj/coral.js"></script>
+
+</head>
+
+<body>
+ <!--  <script type="text/javascript" src="js/script.js"></script>-->
+    
+<div class="container text-center jpbox">
+  <h1>Ejemplos shaders</h1>
+</div>
+  
+<div class="container-fluid jpbox jpmaincontainer jpspace">
+  <div class="row">
+    <div class="col-sm-12">
+     <h2>Introducción </h2>     
+      <p>Aqui podras encontrar muchisima información recolectada a lo largo de los años sobre los shaders. Especificamente los fragment shaders. </p>
+      <div>
+        <h2>F.A.Q - Preguntas Comunes </h2>
+        <h3>¿Que es un shader?</h3>
+        <p> Un shader es un programa que se ejecuta directo en la GPU. Se utilizan para calcular el color de cada pixel, manipular vertices y procesar millones de particulas en simultaneo.  </p>
+        <h3>¿Que tienen de especial los shaders? </h3>
+        
+        <p>Los shaders tienen una arquitectura de programación particular que aprovecha las ventajas del funcionamiento de la placa de video, esta arquitectura de programación consiste principalmente en el procesamiento paralalelo donde se calcula todos los pixeles, la cantidad de vertices y posiciones de particulas en simultaneo a diferencia de la CPU que es mucho mas potente pero su procesamiento es lineal. </p>
+        <p>Patricio Gonzales vivo en su libro "the book of shaders" lo compara con la impresora de gutemberg</p>
+        <p>En este video de los cazadores de mitos podemos ver una ejemplificación visual de como funciona este proceso de paralelo(GPU) vs lineal(CPU).</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/-P28LKWTzrI" title="Mythbusters Demo GPU versus CPU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        
+        <h3>¿Que tipos de shaders mas comunes existen </h3>
+        <ul>
+          <li>Fragment shader</a>: Es el tipo de shader principal que veremos en profundidad en este sitio. Este tipo de shader es el que se encarga de calcular cual es el color de cada pixel.</li>
+          <li>Vertex shader</a>: Este tipo de shader se encarga de aplicar transformaciones sobre la posición de los vertices.</li>
+          <li>Compute shader</a>: Este tipo de shaders se utilizan para hacer calculos de millones de elementos en simultaneo, el procesamiento en paralelo lo hace posible. De ahi el termino GPU particles.</li>
+        </ul>
+        <p>Los lenguajes de programación que se utilizan para programa shaders son GLSL o HLSL.</p>
+        <h3>¿Cuales son las plataformas mas comunes en las que se ejecutan ? </h3>
+        <p>Todas las plataformas actuales para manejar gráficos avanzados utilizan shaders. Algunas de estas plataformas pueden ser : processing, p5js , three.js, openframeworks, babylon.js en el caso de glsl y Unity,Unreal Engine en el caso de HLSL. Cada plataforma tiene su manera particular de implementación pero las bases estructurales son las mismas. 
+        </p>
+        <h3>¿Cuáles son los usos más comunes de los shaders?</h3>
+        <p>Los shaders se utilizan para dar un acabado gráfico de gran calidad al producto final. Sus usos específicos son generación de materiales dinámicos, filtros de postprocesado, programación de visuales en tiempo real(live coding), efectos visuales de alto nivel.</p>
+        <h3>¿Qué es shader-toy y por qué es tan importante? </h3>
+        <p>Shadertoy es la biblioteca de Alejandría pero de los shaders. En este sitio podremos encontrar un repositorio gigante de shaders de efectos visuales, patrones generativos, postprocesado, fluidos. Aquí podremos encontrar código con el que experimentar y cambiar desde el mismo sitio. </p>
+      </div> 
+     
+      <p>Mail de contacto: <a href="mailto:julian.d.puppo@gmail.com">julian.d.puppo@gmail.com</a></p>
+      <p><a href="https://www.instagram.com/julianpuppo/">Instagram</a></p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid jpbox jpmaincontainer jpspace">
+  <div class="row">
+    <div class="col-sm-12">
+        <h3>Tutoriales de Shaders</h3>
+        <p>Hacer click  en los siguientes tutoriales para ver los shaders en el editor.
+
+        <h4>Capítulo 1: Estructura del lenguaje</h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap1_sh1" target="_blank">1.1 Función main, vec4, cómo poner un color inicial</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap1_sh2" target="_blank">1.2 Intro a creación de variables</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap1_sh3" target="_blank">1.3 Creación y definición de funciones</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap1_sh4" target="_blank">1.4 Coordenadas cartesianas</a></li>
+        </ul>
+        
+        <h4>Capítulo 2: Osciladores</h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap2_sh1" target="_blank">2.1 Uso de la función sin para generar ondas</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap2_sh2" target="_blank">2.2 Intro senoidales</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap2_sh3" target="_blank">2.3 Frecuencia y tiempo</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap2_sh4" target="_blank">2.4 Mezclando ondas</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap2_sh5" target="_blank">2.5 Ondas anidadas</a></li>
+        </ul>
+        
+        <h4>Capítulo 3: Mezcla de colores</h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap3_sh1" target="_blank">3.1 Función MIX</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap3_sh2" target="_blank">3.2 Funciones HSB y RGB</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap3_sh3" target="_blank">3.3 Función mix y hsb2rgb para pintar una animación</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap3_sh4" target="_blank">3.4 Multiplicación y suma de colores</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap3_sh5" target="_blank">3.5 Cambio de fase</a></li>
+        </ul>
+        
+        <h4>Capítulo 4: Formas</h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap4_sh1" target="_blank">4.1 Obtención de radio y ángulo</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap4_sh2" target="_blank">4.2 Uso de radio y ángulo como osciladores</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap4_sh3" target="_blank">4.3 Círculo inicial, Función step</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap4_sh4" target="_blank">4.4 Círculo avanzado - smoothstep</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap4_sh5" target="_blank">4.5 Círculo inicial - Shaping function</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap4_sh6" target="_blank">4.6 Polígonos</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap4_sh7" target="_blank">4.7 Movimiento de formas</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap4_sh8" target="_blank">4.8 Formas sin relleno</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap4_sh9" target="_blank">4.9 Formas con borde de distintos colores</a></li>
+        </ul>
+
+        <h4>Capítulo 5: Operaciones Matriciales : Translate Rotate Scale</h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap5_sh1" target="_blank">5.1 Movimiento de formas(Translate basico).</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap5_sh2" target="_blank">5.2 Rotate y scale combinados.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap5_sh3" target="_blank">5.3 Translate rotate Y scale con 2 poligonos combinados.</a></li>
+            <!--<li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap5_sh4" target="_blank">5.4 Título del submódulo</a></li>-->
+        </ul>
+
+        <h4>Capítulo 6: Subdivisión del espacio </h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap6_sh1" target="_blank">6.1 Función Fract.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap6_sh2" target="_blank">6.2 Subdivisión de espacio : uvs:</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap6_sh3" target="_blank">6.3 UVS combinadas.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap6_sh4" target="_blank">6.4 Título del submódulo</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap6_sh5" target="_blank">6.5 Poligonos subdivididos</a></li>
+        </ul>
+
+        <h4>Capítulo 7: Iteración,ciclos y loops </h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap7_sh1" target="_blank">7.1 Circulos radiales.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap7_sh2" target="_blank">7.2 Subdivision espacial iterada.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap7_sh3" target="_blank">7.3 Coloreo sobre la iteración.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap7_sh4" target="_blank">7.4 Iterando sobre varios valores.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap7_sh5" target="_blank">7.5 iterando sobre Pares e impares.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap7_sh6" target="_blank">7.6 Iterando suma de visual.</a></li>
+        </ul>
+
+        <h4>Capítulo 8: Feedback</h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap8_sh1" target="_blank">8.1 Sumar feedback</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap8_sh2" target="_blank">8.2 Feedback mix</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap8_sh3" target="_blank">8.3 Operaciones matriciales sobre las UV del feedback </a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap8_sh4" target="_blank">8.4 Modificador del feedback.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap8_sh5" target="_blank">8.5 Limite y decrecimiento.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap8_sh6" target="_blank">8.6 Feedback multiplicado</a></li>
+        </ul>
+
+        <h4>Capítulo 9: Patrones generativos</h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap9_sh1" target="_blank">9.1 Patrones generativos</a></li>
+        </ul>
+
+        <h4>Capítulo 10: Fractales</h4>
+        <ul>
+          <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap10_sh1" target="_blank">10.1 Fractal boxfold + cousinfold. </a></li>
+          <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap10_sh2" target="_blank">10.2 Fractal abs+scale+rot. </a></li>
+          <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap10_sh3" target="_blank">10.3 Rotar rgb según suma de las diferencias.</a></li>
+          <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap10_sh4" target="_blank">10.4 Función seno sobre el resultado.</a></li>
+          <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap10_sh5" target="_blank">10.5 Conversión hsv a rgb - variación de brillo radial.</a></li>
+          <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap10_sh6" target="_blank">10.6 Fractal boxfold+scale+ballfold.</a></li>
+          <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap10_sh7" target="_blank">10.7 Orbit traps.</a></li>
+          <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap10_sh8" target="_blank">10.8 Orbit traps animadas - color por iteración.</a></li>
+          <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap10_sh9" target="_blank">10.9 Fractal boxfold + cousinfold.</a></li>
+          <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap10_sh10" target="_blank">10.10 Fractal boxfold + ballfold.</a></li>
+      </ul>
+
+        <h4>Capítulo 11: Raymarching inicial. </h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap11_sh1" target="_blank">11.1 Raymarching basica de una esfera.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap11_sh2" target="_blank">11.2 Esferas y cubos de diferentes colores.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap11_sh3" target="_blank">11.3 Intersección de objetos y duplicación utilizando ABS().</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap11_sh4" target="_blank">11.4 Restar un objeto a otro.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap11_sh5" target="_blank">11.5 Desplazamientos/deformaciones de la función de la distancia.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap11_sh6" target="_blank">11.6 Sombras - Niebla - Rotación de camara.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap11_sh7" target="_blank">11.7 Copiar objetos a lo largo de varios ejes.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap11_sh8" target="_blank">11.8 Combinación de figuras 3D.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap11_sh9" target="_blank">11.9 Copias Radiales.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap11_sh10" target="_blank">11.10 Manejo de camaras. </a></li>
+        </ul>
+
+        <h4>Capítulo 12: Raymarching avanzado : luces. </h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap12_sh1" target="_blank">12.1 Point light. </a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap12_sh2" target="_blank">12.2 Arbol Fractal con proyección de sombras.</a></li>
+            <li><a href="https://jeyder.com.ar/jpshadereditor/?shader=cap12_sh3" target="_blank">12.3 Tunel con seguimiento de camera. </a></li>
+        </ul>
+        <br>
+        <p>   Agradecimientos a Kali por la colaboración en los capitulos 10,11,12 de raymarching y fractales. </p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid jpbox jpmaincontainer jpspace">
+  <div class="row">
+    <div class="col-sm-12">
+        <h3>Links del curso:</h3>
+        <ul>
+            <li><a href="https://drive.google.com/drive/folders/14vP9OIA030Yt43rMajLdShu8RkHycPmN">Tutoriales de shaders en Kodelife</a></li>
+            <li><a href="https://github.com/jpupper/processingglsl">Tutoriales de shaders en Processing</a></li>
+            <li><a href="https://github.com/jpupper/shaderminimunexamples">Ejemplos mínimos de shaders</a></li>
+            <li><a href="https://drive.google.com/file/d/1rBi96pGJk9yIov3yt2Cp9L76brY3StFJ/view?usp=sharing">Proyecto de Unreal Engine de shaders. Versión 5.4</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid jpbox jpmaincontainer jpspace">
+  <div class="row">
+    <div class="col-sm-12">
+        <h3>Proyectos personales que usan shaders</h3> 
+        <ul>
+            <li><a href="https://jeyder.com.ar/guipper/">Guipper</a></li>
+            <li><a href="https://chatgpt.com/g/g-3CJbrt0zU-shader-artist-pro">ShaderGPT (bot de chatgpt entrenado con este curso)</a></li>
+            <li><a href="https://github.com/jpupper/raymarchingexplorer">Explorador de Raymarching con cámara</a></li>
+            <li><a href="https://github.com/jpupper/WebShaderGallery">Galería de shaders WEB</a></li>
+            <li><a href="https://github.com/jpupper/kodelifesketches">300 Sketches kodelife</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid jpbox jpmaincontainer jpspace">
+  <div class="row">
+    <div class="col-sm-12">
+        <h3>Plataformas para correr shaders:</h3> 
+       
+        <h4>Editores de código web</h4>
+        <ul>
+            <li><a href="https://shadertoy.com">Shadertoy</a></li>
+            <li><a href="https://www.poshbrolly.net/">Posh Brolly</a></li>
+            <li><a href="https://editor.p5js.org/p5/sketches/3D:_passing_shader_uniforms">P5.js</a></li>
+        </ul>
+        <h4>Plataformas web que admiten shaders</h4>
+        <ul>
+            <li><a href="https://cables.gl/">Cables.gl</a></li>
+            <li><a href="https://threejs.org/">Three.js</a></li>
+            <li><a href="https://www.babylonjs.com/">Babylon.js</a></li>
+        </ul>
+        <h4>Plataformas locales que corren shaders:</h4>
+        <ul>
+            <li><a href="https://jeyder.com.ar/guipper/">Guipper</a></li>
+            <li><a href="https://unity.com/">Unity</a></li>
+            <li><a href="https://www.unrealengine.com/es-ES">Unreal Engine</a></li>
+            <li><a href="https://derivative.ca/">Touch Designer</a></li>
+        </ul>
+        <h4>Herramientas</h4>
+        <ul>
+            <li><a href="https://graphtoy.com">Editor de funciones matemáticas</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=de.markusfisch.android.shadereditor&hl=es_AR&pli=1">Editor de Android: Shader Editor</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+
+</html>
