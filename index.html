@@ -176,75 +176,84 @@
 
    <div class="chapter-group">
 <!-- Cap 8 -->
-   <h4>Capitulo 8: Feedback</h4>
-   <p class="chapter-desc">El tiempo como material. Implementamos buffers de feedback para que cada frame se construya sobre el anterior, mezclamos el resultado actual con el historico, aplicamos transformaciones a las UVs del feedback, y controlamos el limite y decaimiento para crear trails y efectos de persistencia visual.</p>
+   <h4>Capitulo 8: Procesamiento de Imagenes</h4>
+   <p class="chapter-desc">El shader como procesador de imagenes. Aprendemos a cargar texturas en buffers, samplear pixeles con texture2D() y sentamos las bases para entender como se manipulan imagenes dentro del pipeline de la GPU, habilidad fundamental para efectos de postprocesado y feedback.</p>
    <ul class="shader-list">
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap08_sh1&nosession=true" target="_blank"><span class="num">8.1</span> Sumar feedback</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap08_sh2&nosession=true" target="_blank"><span class="num">8.2</span> Feedback mix</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap08_sh3&nosession=true" target="_blank"><span class="num">8.3</span> Operaciones matriciales sobre las UV del feedback</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap08_sh4&nosession=true" target="_blank"><span class="num">8.4</span> Modificador del feedback</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap08_sh5&nosession=true" target="_blank"><span class="num">8.5</span> Limite y decrecimiento</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap08_sh6&nosession=true" target="_blank"><span class="num">8.6</span> Feedback multiplicado</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap08_sh1&nosession=true" target="_blank"><span class="num">8.1</span> Carga minima de buffer de imagen</a></li>
    </ul>
 </div>
 
    <div class="chapter-group">
 <!-- Cap 9 -->
-   <h4>Capitulo 9: Patrones generativos</h4>
-   <p class="chapter-desc">Combinamos todo lo aprendido para crear patrones visuales generativos. Usamos ruido, funciones periodicas, subdivision del espacio y operaciones de color para generar composiciones organicas y complejas que evolucionan en el tiempo.</p>
+   <h4>Capitulo 9: Feedback</h4>
+   <p class="chapter-desc">El tiempo como material. Implementamos buffers de feedback para que cada frame se construya sobre el anterior, mezclamos el resultado actual con el historico, aplicamos transformaciones a las UVs del feedback, y controlamos el limite y decaimiento para crear trails y efectos de persistencia visual.</p>
    <ul class="shader-list">
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap09_sh1&nosession=true" target="_blank"><span class="num">9.1</span> Patrones generativos</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap09_sh1&nosession=true" target="_blank"><span class="num">9.1</span> Sumar feedback</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap09_sh2&nosession=true" target="_blank"><span class="num">9.2</span> Feedback mix</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap09_sh3&nosession=true" target="_blank"><span class="num">9.3</span> Operaciones matriciales sobre las UV del feedback</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap09_sh4&nosession=true" target="_blank"><span class="num">9.4</span> Modificador del feedback</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap09_sh5&nosession=true" target="_blank"><span class="num">9.5</span> Limite y decrecimiento</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap09_sh6&nosession=true" target="_blank"><span class="num">9.6</span> Feedback multiplicado</a></li>
    </ul>
 </div>
 
    <div class="chapter-group">
 <!-- Cap 10 -->
-   <h4>Capitulo 10: Fractales</h4>
-   <p class="chapter-desc">La geometria infinita en tu GPU. Implementamos sistemas de funciones iteradas (IFS) con operadores como boxfold, ballfold y cosinfold. Aprendemos orbit traps para colorear los fractales, rotamos canales RGB segun la dinamica del sistema, y aplicamos funciones seno y conversion HSV para lograr acabados visuales impactantes.</p>
+   <h4>Capitulo 10: Patrones generativos</h4>
+   <p class="chapter-desc">Combinamos todo lo aprendido para crear patrones visuales generativos. Usamos ruido, funciones periodicas, subdivision del espacio y operaciones de color para generar composiciones organicas y complejas que evolucionan en el tiempo.</p>
    <ul class="shader-list">
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap10_sh1&nosession=true" target="_blank"><span class="num">10.1</span> Fractal boxfold + cosinfold</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap10_sh2&nosession=true" target="_blank"><span class="num">10.2</span> Fractal abs + scale + rot</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap10_sh3&nosession=true" target="_blank"><span class="num">10.3</span> Rotar RGB segun suma de las diferencias</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap10_sh4&nosession=true" target="_blank"><span class="num">10.4</span> Funcion seno sobre el resultado</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap10_sh5&nosession=true" target="_blank"><span class="num">10.5</span> Conversion HSV a RGB - variacion de brillo radial</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap10_sh6&nosession=true" target="_blank"><span class="num">10.6</span> Fractal boxfold + scale + ballfold</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap10_sh7&nosession=true" target="_blank"><span class="num">10.7</span> Orbit traps</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap10_sh8&nosession=true" target="_blank"><span class="num">10.8</span> Orbit traps animadas - color por iteracion</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap10_sh9&nosession=true" target="_blank"><span class="num">10.9</span> Fractal boxfold + cosinfold</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap10_sh10&nosession=true" target="_blank"><span class="num">10.10</span> Fractal boxfold + ballfold</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap10_sh1&nosession=true" target="_blank"><span class="num">10.1</span> Patrones generativos</a></li>
    </ul>
 </div>
 
    <div class="chapter-group">
 <!-- Cap 11 -->
-   <h4>Capitulo 11: Raymarching inicial</h4>
-   <p class="chapter-desc">Renderizado 3D sin poligonos. Implementamos el algoritmo de raymarching desde cero: definimos funciones de distancia (SDF) para esferas y cubos, combinamos objetos con operaciones booleanas (union, interseccion, resta), aplicamos deformaciones, y aprendemos tecnicas de sombras, niebla y camaras para crear escenas 3D completas.</p>
+   <h4>Capitulo 11: Fractales</h4>
+   <p class="chapter-desc">La geometria infinita en tu GPU. Implementamos sistemas de funciones iteradas (IFS) con operadores como boxfold, ballfold y cosinfold. Aprendemos orbit traps para colorear los fractales, rotamos canales RGB segun la dinamica del sistema, y aplicamos funciones seno y conversion HSV para lograr acabados visuales impactantes.</p>
    <ul class="shader-list">
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh1&nosession=true" target="_blank"><span class="num">11.1</span> Raymarching basico de una esfera</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh2&nosession=true" target="_blank"><span class="num">11.2</span> Esferas y cubos de diferentes colores</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh3&nosession=true" target="_blank"><span class="num">11.3</span> Interseccion de objetos y duplicacion usando ABS()</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh4&nosession=true" target="_blank"><span class="num">11.4</span> Restar un objeto a otro</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh5&nosession=true" target="_blank"><span class="num">11.5</span> Desplazamientos/deformaciones de la funcion de distancia</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh6&nosession=true" target="_blank"><span class="num">11.6</span> Sombras - Niebla - Rotacion de camara</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh7&nosession=true" target="_blank"><span class="num">11.7</span> Copiar objetos a lo largo de varios ejes</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh8&nosession=true" target="_blank"><span class="num">11.8</span> Combinacion de figuras 3D</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh9&nosession=true" target="_blank"><span class="num">11.9</span> Copias radiales</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh10&nosession=true" target="_blank"><span class="num">11.10</span> Manejo de camaras</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh1&nosession=true" target="_blank"><span class="num">11.1</span> Fractal boxfold + cosinfold</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh2&nosession=true" target="_blank"><span class="num">11.2</span> Fractal abs + scale + rot</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh3&nosession=true" target="_blank"><span class="num">11.3</span> Rotar RGB segun suma de las diferencias</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh4&nosession=true" target="_blank"><span class="num">11.4</span> Funcion seno sobre el resultado</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh5&nosession=true" target="_blank"><span class="num">11.5</span> Conversion HSV a RGB - variacion de brillo radial</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh6&nosession=true" target="_blank"><span class="num">11.6</span> Fractal boxfold + scale + ballfold</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh7&nosession=true" target="_blank"><span class="num">11.7</span> Orbit traps</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh8&nosession=true" target="_blank"><span class="num">11.8</span> Orbit traps animadas - color por iteracion</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh9&nosession=true" target="_blank"><span class="num">11.9</span> Fractal boxfold + cosinfold</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap11_sh10&nosession=true" target="_blank"><span class="num">11.10</span> Fractal boxfold + ballfold</a></li>
    </ul>
 </div>
 
    <div class="chapter-group">
 <!-- Cap 12 -->
-   <h4>Capitulo 12: Raymarching avanzado: luces</h4>
-   <p class="chapter-desc">Iluminacion y proyeccion de sombras en 3D. Implementamos point lights con calculo de normales, proyectamos sombras en tiempo real, creamos un arbol fractal 3D con sombras, y desarrollamos un tunel con seguimiento de camara que demuestra todo el poder del raymarching.</p>
+   <h4>Capitulo 12: Raymarching inicial</h4>
+   <p class="chapter-desc">Renderizado 3D sin poligonos. Implementamos el algoritmo de raymarching desde cero: definimos funciones de distancia (SDF) para esferas y cubos, combinamos objetos con operaciones booleanas (union, interseccion, resta), aplicamos deformaciones, y aprendemos tecnicas de sombras, niebla y camaras para crear escenas 3D completas.</p>
    <ul class="shader-list">
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh1&nosession=true" target="_blank"><span class="num">12.1</span> Point light</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh2&nosession=true" target="_blank"><span class="num">12.2</span> Arbol fractal con proyeccion de sombras</a></li>
-       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh3&nosession=true" target="_blank"><span class="num">12.3</span> Tunel con seguimiento de camara</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh1&nosession=true" target="_blank"><span class="num">12.1</span> Raymarching basico de una esfera</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh2&nosession=true" target="_blank"><span class="num">12.2</span> Esferas y cubos de diferentes colores</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh3&nosession=true" target="_blank"><span class="num">12.3</span> Interseccion de objetos y duplicacion usando ABS()</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh4&nosession=true" target="_blank"><span class="num">12.4</span> Restar un objeto a otro</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh5&nosession=true" target="_blank"><span class="num">12.5</span> Desplazamientos/deformaciones de la funcion de distancia</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh6&nosession=true" target="_blank"><span class="num">12.6</span> Sombras - Niebla - Rotacion de camara</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh7&nosession=true" target="_blank"><span class="num">12.7</span> Copiar objetos a lo largo de varios ejes</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh8&nosession=true" target="_blank"><span class="num">12.8</span> Combinacion de figuras 3D</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh9&nosession=true" target="_blank"><span class="num">12.9</span> Copias radiales</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap12_sh10&nosession=true" target="_blank"><span class="num">12.10</span> Manejo de camaras</a></li>
    </ul>
 </div>
 
-   <p class="credits">Agradecimientos a <strong>Kali</strong> por la colaboracion en los capitulos 10, 11 y 12 de raymarching y fractales.</p>
+   <div class="chapter-group">
+<!-- Cap 13 -->
+   <h4>Capitulo 13: Raymarching avanzado: luces</h4>
+   <p class="chapter-desc">Iluminacion y proyeccion de sombras en 3D. Implementamos point lights con calculo de normales, proyectamos sombras en tiempo real, creamos un arbol fractal 3D con sombras, y desarrollamos un tunel con seguimiento de camara que demuestra todo el poder del raymarching.</p>
+   <ul class="shader-list">
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap13_sh1&nosession=true" target="_blank"><span class="num">13.1</span> Point light</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap13_sh2&nosession=true" target="_blank"><span class="num">13.2</span> Arbol fractal con proyeccion de sombras</a></li>
+       <li><a href="https://fullscreencode.com/jpshadereditor/shader.html?shader=cap13_sh3&nosession=true" target="_blank"><span class="num">13.3</span> Tunel con seguimiento de camara</a></li>
+   </ul>
+</div>
+
+   <p class="credits">Agradecimientos a <strong>Kali</strong> por la colaboracion en los capitulos 11, 12 y 13 de raymarching y fractales.</p>
 </section>
 
 <!-- ═══════════════════════════ LINKS DEL CURSO ═══════════════════════════ -->
