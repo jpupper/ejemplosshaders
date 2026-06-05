@@ -1,59 +1,51 @@
-/* Paleta de colores */
+/* ═══════════════════════════════════════
+   Taller de GLSL Shaders — Estilo
+   ═══════════════════════════════════════ */
+
 :root {
-    --background-color: #121212;
-    --primary-color: #ff69b4;
-    --secondary-color: #ff1493;
-    --text-color: #ffffff;
-    --border-color: rgba(85,18,89, 0.8);
-    --hover-color: #ff1493;
+    --bg-deep: #08090d;
+    --bg-surface: #0e1018;
+    --bg-card: #11131d;
+    --bg-hover: #161925;
+    --accent: #00e5ff;
+    --accent-glow: rgba(0, 229, 255, 0.3);
+    --accent-dim: rgba(0, 229, 255, 0.12);
+    --accent-subtle: rgba(0, 229, 255, 0.06);
+    --purple: #7c4dff;
+    --purple-dim: rgba(124, 77, 255, 0.12);
+    --text: rgba(255, 255, 255, 0.88);
+    --text-dim: rgba(255, 255, 255, 0.55);
+    --text-subtle: rgba(255, 255, 255, 0.35);
+    --border: rgba(255, 255, 255, 0.06);
+    --border-accent: rgba(0, 229, 255, 0.15);
+    --radius: 8px;
+    --radius-sm: 5px;
+    --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Consolas', monospace;
+    --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: black !important;
-    color: var(--text-color);
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-	 background: url('../img/background.png') no-repeat center center fixed;
-    background-size: cover;
+    background-color: var(--bg-deep);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Estilos de encabezado */
-h1, h2 {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 3em;
-    color: var(--primary-color);
-}
-
-h2 {
-    font-size: 2em;
-    color: var(--secondary-color);
-}
-
-@font-face {
-    src: url("./font/nexaheavy.ttf");
-    font-family: nexaheavy;
-}
-
-.jpbox {
-    color: var(--text-color);
-    background-color: var(--background-color);
-    border: 5px solid var(--border-color);
-    margin-bottom: 40px; /* Aumentar el espacio entre secciones */
-    padding: 30px; /* Añadir padding interno */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-    border-radius: 8px; /* Bordes redondeados */
-
-}
-.jpspace{
-	padding-left: 1rem !important;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
+/* ═══════════════════════════════════════
+   Canvas de fondo (p5.js)
+   ═══════════════════════════════════════ */
 canvas {
     z-index: -3;
     position: fixed;
@@ -64,142 +56,306 @@ canvas {
     height: auto;
 }
 
-p, a, ul, li {
-    font-size: 18px;
-    font-family: 'Helvetica Neue', sans-serif;
+/* ═══════════════════════════════════════
+   Canvas de fondo WebGL (bg-shader)
+   ═══════════════════════════════════════ */
+#bg-shader {
+    z-index: -10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
 }
 
-p, a {
-    margin-bottom: 20px;
+/* ═══════════════════════════════════════
+   Contenedores principales
+   ═══════════════════════════════════════ */
+.jpbox {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.jplinks {
-    margin-bottom: 50px;
+.jpmaincontainer {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.download-link {
-    color: var(--primary-color); /* Color llamativo */
-    font-weight: bold;
-    text-decoration: underline;
-    transition: color 0.3s ease; /* Transición suave */
+.jpspace {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
-.download-link:hover {
-    color: var(--hover-color); /* Color al pasar el mouse */
+/* ═══════════════════════════════════════
+   Hero
+   ═══════════════════════════════════════ */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    max-width: 960px;
+    margin: 0 auto;
 }
 
-/* Efectos de transición */
-a:hover, button:hover {
-    color: var(--hover-color);
-    transition: color 0.3s ease;
+.hero h1 {
+    font-family: var(--font-mono);
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 60px var(--accent-glow);
 }
 
-/* Ajustes de accesibilidad */
-a:focus, button:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 4px;
-}
-.jpmaincontainer{
-	max-width: 80%;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    body {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    h1 {
-        font-size: 2.5em;
-    }
-
-    h2 {
-        font-size: 1.5em;
-    }
-
-    p, a, ul, li {
-        font-size: 16px;
-    }
+.hero .tagline {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
 }
 
-/* Estilos para listas */
-ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 20px;
+.hero .subtagline {
+    font-size: 0.9rem;
+    color: var(--text-subtle);
+    font-weight: 300;
+    letter-spacing: 0.3px;
 }
 
-ul li {
-    margin-bottom: 15px;
-    list-style-type: none;
+/* ═══════════════════════════════════════
+   Encabezados
+   ═══════════════════════════════════════ */
+h1 {
+    font-size: 2.8em;
+    color: var(--accent);
+    font-weight: 700;
 }
 
-/* Estilos para enlaces en listas */
-ul li a {
-    display: block;
-    color: var(--text-color);
-    text-decoration: none;
-    padding: 8px 15px;
-    background-color: rgba(255, 105, 180, 0.05);
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    border-left: 3px solid transparent;
+h2 {
+    font-size: 1.8em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-accent);
 }
 
-ul li a:hover {
-    background-color: rgba(255, 105, 180, 0.1);
-    border-left-color: var(--primary-color);
-    transform: translateX(5px);
+h2:first-child {
+    margin-top: 0;
 }
 
-/* Estilos para todos los enlaces */
+h3 {
+    font-size: 1.25em;
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    margin-top: 1.8rem;
+}
+
+h4 {
+    font-family: var(--font-mono);
+    font-size: 1.05em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    margin-top: 2rem;
+    letter-spacing: 0.3px;
+}
+
+/* ═══════════════════════════════════════
+   Párrafos y texto
+   ═══════════════════════════════════════ */
+p {
+    font-size: 1rem;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    max-width: 75ch;
+}
+
+p strong {
+    color: var(--text);
+}
+
+/* ═══════════════════════════════════════
+   Links
+   ═══════════════════════════════════════ */
 a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+a:hover {
+    color: #fff;
+}
+
+/* Links en listas de shaders */
+.shader-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.shader-list li {
+    margin-bottom: 0;
+}
+
+.shader-list li a {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.7rem 0.9rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    transition: all 0.2s ease;
+    line-height: 1.5;
+    margin-bottom: 0.35rem;
+}
+
+.shader-list li a .num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    opacity: 0.7;
+    min-width: 4ch;
+    flex-shrink: 0;
+}
+
+.shader-list li a:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-accent);
+    color: var(--text);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.shader-list li a:hover .num {
+    opacity: 1;
+}
+
+/* Links generales (no shader) */
+ul:not(.shader-list) li a,
+a:not(.shader-list li a):not(.nav-link) {
     display: inline-block;
-    color: var(--text-color);
-    text-decoration: none;
-    padding: 8px 15px;
-    background-color: rgba(255, 105, 180, 0.05);
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    border-left: 3px solid transparent;
-    margin-bottom: 10px;
+    color: var(--accent);
+    padding: 0.4rem 0.7rem;
+    background: var(--accent-subtle);
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    margin-bottom: 0.3rem;
 }
 
-a:hover {
-    background-color: rgba(255, 105, 180, 0.1);
-    border-left-color: var(--primary-color);
-    transform: translateX(5px);
+ul:not(.shader-list) li a:hover,
+a:not(.shader-list li a):hover {
+    background: var(--accent-dim);
+    border-color: var(--border-accent);
+    color: #fff;
 }
 
-/* Ajustes específicos para enlaces en listas */
-ul li a {
-    display: block;
+/* ═══════════════════════════════════════
+   Listas generales
+   ═══════════════════════════════════════ */
+ul:not(.shader-list) {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
 }
 
-/* Eliminar estilos predeterminados de las listas */
-ul {
-    list-style-type: none;
+ul:not(.shader-list) li {
+    margin-bottom: 0.4rem;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+ul:not(.shader-list) li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* FAQ list without bullets */
+.faq-list li {
     padding-left: 0;
 }
 
-/* Estilos para enlaces generales */
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
+.faq-list li::before {
+    display: none;
 }
 
-a:hover {
-    color: var(--hover-color);
+/* ═══════════════════════════════════════
+   Chapter group — cada capitulo es un row
+   ═══════════════════════════════════════ */
+.chapter-group {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.chapter-group:hover {
+    border-color: var(--border-accent);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.04);
+}
+
+.chapter-group h4 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+}
+
+/* ═══════════════════════════════════════
+   Chapter description
+   ═══════════════════════════════════════ */
+.chapter-desc {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 1.3rem;
+    margin-top: 0.3rem;
+    border-left: 3px solid var(--accent);
+    padding-left: 1.4rem;
+    max-width: 85ch;
+    line-height: 1.75;
+    font-weight: 350;
+}
+
+/* ═══════════════════════════════════════
+   Separador de sección
+   ═══════════════════════════════════════ */
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+}
+
+/* ═══════════════════════════════════════
+   Video container
+   ═══════════════════════════════════════ */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     max-width: 100%;
+    border-radius: var(--radius);
+    margin: 1.5rem 0;
+    border: 1px solid var(--border);
 }
 
 .video-container iframe {
@@ -210,3 +366,119 @@ a:hover {
     height: 100%;
 }
 
+/* ═══════════════════════════════════════
+   Credit line
+   ═══════════════════════════════════════ */
+.credits {
+    font-size: 0.85rem;
+    color: var(--text-subtle);
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.credits a {
+    color: var(--accent);
+}
+
+/* ═══════════════════════════════════════
+   Contact info
+   ═══════════════════════════════════════ */
+.contact-info {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+}
+
+.contact-info a {
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+/* ═══════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+    .jpbox {
+        padding: 1.5rem 1rem;
+    }
+
+    .jpspace {
+        padding-left: 0.8rem !important;
+        padding-right: 0.8rem !important;
+    }
+
+    .hero {
+        padding: 2.5rem 1rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .chapter-group {
+        padding: 1.2rem 1rem;
+    }
+
+    .chapter-desc {
+        font-size: 1.05rem;
+        padding-left: 1rem;
+    }
+
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.4em; }
+    h3 { font-size: 1.1em; }
+
+    p {
+        max-width: 100%;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .jpmaincontainer {
+        max-width: 100%;
+    }
+}
+
+/* ═══════════════════════════════════════
+   Scrollbar sutil
+   ═══════════════════════════════════════ */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-accent);
+}
+
+/* ═══════════════════════════════════════
+   Utilidades
+   ═══════════════════════════════════════ */
+.text-center {
+    text-align: center;
+}
+
+.muted {
+    color: var(--text-subtle);
+    font-size: 0.85rem;
+}
